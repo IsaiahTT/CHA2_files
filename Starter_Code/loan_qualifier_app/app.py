@@ -123,11 +123,12 @@ def save_qualifying_loans(qualifying_loans):
     # @TODO: Complete the usability dialog for savings the CSV Files.
     q_save = ""
     q_save = questionary.text("Would you like to save your qualifying loans as a csv? (y/n)").ask()
-    qual_loans_path = questionary.text("Would you like to save your qualifying loans as a csv? (y/n)").ask()
-    if q_save = "y":
+    qual_loans_path = questionary.text("What path would you like to save it to?").ask()
+    if q_save == "y":
         save_csv(qualifying_loans, qual_loans_path)
     else:
-        
+        print("No problem.")
+
 
 
 def run():
