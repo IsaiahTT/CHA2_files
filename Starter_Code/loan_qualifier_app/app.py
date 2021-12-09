@@ -9,6 +9,7 @@ Example:
 import sys
 import fire
 import questionary
+import csv
 from pathlib import Path
 
 from qualifier.utils.fileio import load_csv
@@ -101,17 +102,13 @@ def find_qualifying_loans(bank_data, credit_score, debt, income, loan, home_valu
 
     return bank_data_filtered
 
-def save_csv(qualifying_loans, qual_loans_path):
-    csv_loan_path = Path(f"{qual_loans_path}qualifying_loans.csv")
+
+def save_csv(qualifying_loans, csv_loan_path):
     with open(csv_loan_path, 'w', newline='') as csvfile:
         csvwriter = csv.writer(csvfile)
 
-        # Header row
-        csvwriter.writerow(header)
-
         # Data rows
-        for row in qualifying_loans:
-            csvwriter.writerow(row.values())
+        csvwriter.writerows(qualifying_loans)
 
 
 def save_qualifying_loans(qualifying_loans):
@@ -122,13 +119,13 @@ def save_qualifying_loans(qualifying_loans):
     """
     # @TODO: Complete the usability dialog for savings the CSV Files.
     q_save = ""
+    csv_loan_path = ""
     q_save = questionary.text("Would you like to save your qualifying loans as a csv? (y/n)").ask()
-    qual_loans_path = questionary.text("What path would you like to save it to?").ask()
+    csv_loan_path = questionary.text("What path and name would you like to save it to?").ask()
     if q_save == "y":
-        save_csv(qualifying_loans, qual_loans_path)
+        save_csv(qualifying_loans, csv_loan_path)
     else:
-        print("No problem.")
-
+        print("No save, no problem.")
 
 
 def run():
