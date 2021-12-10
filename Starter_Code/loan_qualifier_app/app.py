@@ -102,6 +102,7 @@ def find_qualifying_loans(bank_data, credit_score, debt, income, loan, home_valu
 
     return bank_data_filtered
 
+header = ["Lender", "Max Loan Amount", "Max LTV", "Max DTI", "Min Credit Score", "Interest Rate"]
 
 def save_csv(qualifying_loans, csv_loan_path):
     """Saves the qualifying loans to a CSV file, only if the user likes.
@@ -112,6 +113,8 @@ def save_csv(qualifying_loans, csv_loan_path):
     """
     with open(csv_loan_path, 'w', newline='') as csvfile:
         csvwriter = csv.writer(csvfile)
+
+        csvwriter.writerow(header)
 
         # Data rows
         csvwriter.writerows(qualifying_loans)
