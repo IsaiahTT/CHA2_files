@@ -104,6 +104,12 @@ def find_qualifying_loans(bank_data, credit_score, debt, income, loan, home_valu
 
 
 def save_csv(qualifying_loans, csv_loan_path):
+    """Saves the qualifying loans to a CSV file, only if the user likes.
+
+    Args:
+        qualifying_loans (list of lists): The qualifying bank loans.
+        csv_loan_path: the string for the path the user input before.
+    """
     with open(csv_loan_path, 'w', newline='') as csvfile:
         csvwriter = csv.writer(csvfile)
 
@@ -112,18 +118,19 @@ def save_csv(qualifying_loans, csv_loan_path):
 
 
 def save_qualifying_loans(qualifying_loans):
-    """Saves the qualifying loans to a CSV file.
+    """Askes the user if and how they would like to save the qualifying loans to a CSV file.
 
     Args:
         qualifying_loans (list of lists): The qualifying bank loans.
     """
     # @TODO: Complete the usability dialog for savings the CSV Files.
-    q_save = ""
+    save_answer = ""
     csv_loan_path = ""
-    q_save = questionary.text("Would you like to save your qualifying loans as a csv? (y/n)").ask()
+    save_answer = questionary.text("Would you like to save your qualifying loans as a csv? (y/n)").ask()
     csv_loan_path = questionary.text("What path and name would you like to save it to?").ask()
-    if q_save == "y":
+    if save_answer == "y":
         save_csv(qualifying_loans, csv_loan_path)
+        print(f"Saving your qualifying loans to {csv_loan_path}!")
     else:
         print("No save, no problem.")
 
