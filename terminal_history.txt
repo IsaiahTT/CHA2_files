@@ -1,0 +1,50 @@
+  290  ls
+  291  cd loan_qualifier_app
+  292  ls
+  293  python app.py
+  294  python app.py
+  295  python app.py
+  296  ./data/daily_rate_sheet.csv]
+  297  python app.py
+  298  python app.py
+  299  python app.py
+  300  python app.py
+  301  python app.py
+  302  python app.py
+  303  python app.py
+  304  git status
+  305  python app.py
+  306  python app.py
+  307  python app.py
+  308  python app.py
+  309  python app.py
+  310  python app.py
+  311  python app.py
+  312  python app.py
+  313  python app.py
+  314  python app.py
+  315  python app.py
+  316  git status
+  317  git add .
+  318  git status
+  319  git commit -m "Fully functioning app. Now only making it look and sound nicer."
+  320  git push
+  321  python app.py
+  322  git status
+  323  git add .
+  324  git commit -m "Updated dialogue interaction with user. Updated doc strings"
+  325  git status
+  326  python app.py
+  327  git status
+  328  git add .
+  329  git commit -m "Added header."
+  330  git push
+  331  git status
+  332  git add .
+  333  git commit -m "Updated README file."
+  334  git push
+  335  cd ..
+  336  cd ..
+  337  history 50 > terminal_history.txt
+  338  history 100 > terminal_history.txt
+  339  history 50 > terminal_history.txt
